@@ -8,7 +8,7 @@ module.exports = function (config) {
     ],
     preprocessors: {
       'src/setupTests.js': ['webpack'],
-      'src//*.spec.js': ['webpack']
+      'src/**/*.spec.js': ['webpack']
     },
     webpack: {
       mode: 'development',

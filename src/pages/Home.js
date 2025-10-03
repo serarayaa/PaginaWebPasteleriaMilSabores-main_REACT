@@ -1,9 +1,7 @@
 import React from 'react';
-import './Home.css'; 
+import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import productos from '../data/productos';
-
-
 
 function Home() {
   return (
@@ -19,7 +17,12 @@ function Home() {
             </div>
             <div className="col-12 col-md-6">
               <div className="ratio ratio-16x9 rounded shadow-sm bg-light d-flex align-items-center justify-content-center">
-                <img src="/img/fotoTienda.png" alt="Imagen de la tienda" className="img-fluid rounded" style={{maxHeight: '100%', maxWidth: '100%', objectFit: 'cover'}} />
+                <img
+                  src="/img/fotoTienda.png"
+                  alt="Imagen de la tienda"
+                  className="img-fluid rounded"
+                  style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }}
+                />
               </div>
             </div>
           </div>
@@ -28,13 +31,16 @@ function Home() {
 
       <main className="py-5">
         <div className="container">
-          <h2 className="mb-4 brand-font text-choco">Productos destacados</h2>
+          {/* Cambiado para calzar con el test */}
+          <h2 className="mb-4 brand-font text-choco">Nuestros Productos</h2>
+
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-            {productos.map(producto => (
+            {productos.slice(0, 6).map((producto) => (
               <div className="col" key={producto.codigo}>
-                <div className="card h-100">
+                <div className="card h-100" data-testid="producto">
                   <img src={producto.imagen} className="card-img-top" alt={producto.nombre} />
                   <div className="card-body">
+                    {/* h5 para calzar con getAllByRole({ level: 5 }) */}
                     <h5 className="card-title">{producto.nombre}</h5>
                     <p className="card-text">{producto.descripcion}</p>
                     <button className="btn btn-choco">Agregar al carrito</button>
